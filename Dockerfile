@@ -19,16 +19,18 @@ USER appuser
 # Set up work directory
 WORKDIR /home/appuser/app
 
-# Install pipx
-RUN python3 -m pip install --upgrade pip \
-    && python3 -m pip install crewai[tools]
-
 # Set file permissions for the app directory
 RUN chmod -R 755 /home/appuser/app
+
+# Install pip requirements
+RUN python3 -m pip install --upgrade pip
+COPY requirements.txt /home/appuser/app/
+RUN python3 -m pip install -r requirements.txt
 
 # Switch back to the non-root user
 USER appuser
 
+# Copy other files (inceases likelihood of cache hits if requirements.txt didn't change)
 COPY . /home/appuser/app/
 
 # Set the entrypoint
