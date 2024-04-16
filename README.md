@@ -9,7 +9,7 @@ The example in crewAI's README is included in example.py with a few minor change
 
 # USAGE:
 
-There's several ways to run a devcontainer:
+You will need to just open the dev container, there's a lot of options to do this including:
 * GitHub: Green "Code" button you can select CodeSpaces and open in codespaces to try out this repo
 * VSCode: If you clone the project and open it will prompt to reopen in devcontainer if you have the installed extensions https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 * DevPod / other tools which use devcontainers to set up your environment
